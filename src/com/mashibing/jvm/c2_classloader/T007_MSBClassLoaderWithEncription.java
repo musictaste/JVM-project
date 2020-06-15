@@ -13,7 +13,7 @@ public class T007_MSBClassLoaderWithEncription extends ClassLoader {
 
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
-        File f = new File("D:/ideaWorkspace/mashibing/JVM-master/out/production/JVM-master", name.replace('.', '/').concat(".msbclass"));
+        File f = new File("D:/ideaWorkspace/mashibing/JVM/out/production/JVM-project", name.replace('.', '/').concat(".msbclass"));
 
         try {
             FileInputStream fis = new FileInputStream(f);
@@ -37,7 +37,7 @@ public class T007_MSBClassLoaderWithEncription extends ClassLoader {
 
     public static void main(String[] args) throws Exception {
 
-        encFile("com.mashibing.jvm.hello");
+        encFile("com.mashibing.jvm.Hello");
 
         ClassLoader l = new T007_MSBClassLoaderWithEncription();
         Class clazz = l.loadClass("com.mashibing.jvm.Hello");
@@ -49,9 +49,9 @@ public class T007_MSBClassLoaderWithEncription extends ClassLoader {
     }
 
     private static void encFile(String name) throws Exception {
-        File f = new File("D:/ideaWorkspace/mashibing/JVM-master/out/production/JVM-master", name.replace('.', '/').concat(".class"));
+        File f = new File("D:/ideaWorkspace/mashibing/JVM/out/production/JVM-project", name.replace('.', '/').concat(".class"));
         FileInputStream fis = new FileInputStream(f);
-        FileOutputStream fos = new FileOutputStream(new File("D:/ideaWorkspace/mashibing/JVM-master/out/production/JVM-master", name.replaceAll(".", "/").concat(".msbclass")));
+        FileOutputStream fos = new FileOutputStream(new File("D:/ideaWorkspace/mashibing/JVM/out/production/JVM-project", name.replaceAll(".", "/").concat(".msbclass")));
         int b = 0;
 
         while((b = fis.read()) != -1) {

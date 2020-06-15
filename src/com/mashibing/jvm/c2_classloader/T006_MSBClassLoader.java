@@ -10,7 +10,7 @@ public class T006_MSBClassLoader extends ClassLoader {
 
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
-        File f = new File("D:/ideaWorkspace/mashibing/JVM-master/out/production/JVM-master", name.replace(".", "/").concat(".class"));
+        File f = new File("D:/ideaWorkspace/mashibing/JVM/out/production/JVM-project", name.replace(".", "/").concat(".class"));
         try {
             FileInputStream fis = new FileInputStream(f);
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -22,7 +22,7 @@ public class T006_MSBClassLoader extends ClassLoader {
 
             byte[] bytes = baos.toByteArray();
             baos.close();
-            fis.close();//可以写的更加严谨
+            fis.close();//可以写更加严谨
 
             return defineClass(name, bytes, 0, bytes.length);
         } catch (Exception e) {

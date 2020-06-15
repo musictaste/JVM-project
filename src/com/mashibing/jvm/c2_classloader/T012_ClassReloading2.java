@@ -12,7 +12,7 @@ public class T012_ClassReloading2 {
         @Override
         public Class<?> loadClass(String name) throws ClassNotFoundException {
 
-            File f = new File("D:/ideaWorkspace/mashibing/JVM-master/out/production/JVM-master" + name.replace(".", "/").concat(".class"));
+            File f = new File("D:/ideaWorkspace/mashibing/JVM/out/production/JVM-project" + name.replace(".", "/").concat(".class"));
 
             if(!f.exists()) return super.loadClass(name);
 
